@@ -1,0 +1,6 @@
+<?php
+$arr = [29,55,7,3,12];
+//asort($arr);
+
+var_dump($arr);
+?>

@@ -935,7 +935,7 @@ i.ci {
 }
 
 .ci.ci-computer     {background-position: 0 0}
-.ci.ci-ci-watch     {background-position: -40px 0}
+.ci.ci-watch        {background-position: -40px 0}
 .ci.ci-calendar     {background-position: -80px 0}
 .ci.ci-community    {background-position: -120px 0}
 .ci.ci-instructor   {background-position: -160px 0}
