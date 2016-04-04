@@ -8,16 +8,17 @@
  */
 
 get_header(); ?>
+	<section class="feature-image feature-image-default-alt" data-type="background" data-speed="2">
+		<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'vai_blog' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+	</section>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="container">
+		<div id="primary" class="row">
+			<main id="content" class="col-sm-8">
 
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'vai_blog' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
 
 			<?php
 			/* Start the Loop */
@@ -39,10 +40,13 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+			</main>
+			<aside class="col-sm-4">
+				<?php get_sidebar(); ?>
+			</aside>
+		</div>
+	</div>
 
 <?php
-get_sidebar();
 get_footer();
+?>

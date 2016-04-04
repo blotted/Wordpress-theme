@@ -45,6 +45,7 @@ function vai_blog_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'vai_blog' ),
+		'footer' => esc_html__( 'Footer Menu', 'vai_blog' ),
 	) );
 
 	/*
@@ -80,6 +81,7 @@ function vai_blog_setup() {
 endif;
 add_action( 'after_setup_theme', 'vai_blog_setup' );
 
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -104,8 +106,8 @@ function vai_blog_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
 	) );
 }
 add_action( 'widgets_init', 'vai_blog_widgets_init' );
@@ -150,3 +152,14 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Replace the excerpt "more" text by a link.
+ */
+
+function new_excerpt_more($more) {
+	global $post;
+
+	return '... <a class="moretag" href="'. (get_permalink($post->ID)) . '">' . 'continue reading &raquo;' . '</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');

@@ -40,18 +40,16 @@
 			</p>
 		</div><!-- col -->
 		<div class="col-sm-6">
-			<nav>
-				<ul class="list-unstyled list-inline">
-					<li><a href="/">Home</a></li>
-					<li><a href="/">Blog</a></li>
-					<li><a href="/">Resourses</a></li>
-					<li><a href="/">Contact</a></li>
-					<li class="signup-link"><a href="">Sign up now</a></li>
-				</ul>
-			</nav>
+			<?php
+			wp_nav_menu( array(
+				'theme_location'    => 'footer',
+				'container'         => 'nav',
+				'menu_class'        => 'list-unstyled list-inline',
+			));
+			?>
 		</div><!-- col -->
 		<div class="col-sm-3">
-			<p class="pull-right">&copy 2016</p>
+			<p class="pull-right">&copy <?=date("Y")?></p>
 		</div>
 	</div><!-- container -->
 </footer>
